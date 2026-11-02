@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-11-02 13:30:00.000000",
+ "description": "Suggested questions shown in the AI chat, by context.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "question",
+  "column_break_1",
+  "enabled",
+  "sort_order",
+  "section_scope",
+  "scope",
+  "module",
+  "reference_doctype"
+ ],
+ "fields": [
+  {
+   "fieldname": "question",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Question",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "default": "0",
+   "description": "Lower numbers are shown first.",
+   "fieldname": "sort_order",
+   "fieldtype": "Int",
+   "label": "Sort Order"
+  },
+  {
+   "fieldname": "section_scope",
+   "fieldtype": "Section Break",
+   "label": "Where to Show"
+  },
+  {
+   "default": "Global",
+   "description": "Global: everywhere. Module: that module's workspace and DocTypes. DocType: list and form of that DocType. Document: only when a record of that DocType is open.",
+   "fieldname": "scope",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Scope",
+   "options": "Global\nModule\nDocType\nDocument",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.scope=='Module'",
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Module",
+   "options": "Module Def",
+   "mandatory_depends_on": "eval:doc.scope=='Module'"
+  },
+  {
+   "depends_on": "eval:['DocType','Document'].includes(doc.scope)",
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "DocType",
+   "options": "DocType",
+   "mandatory_depends_on": "eval:['DocType','Document'].includes(doc.scope)"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-02 13:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec Sample Question",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "question",
+ "show_title_field_in_link": 0
+}

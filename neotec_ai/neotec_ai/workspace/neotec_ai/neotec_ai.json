@@ -1,0 +1,129 @@
+{
+ "charts": [],
+ "content": "[{\"id\": \"nh1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Neotec AI &amp; BI</b></span>\", \"col\": 12}}, {\"id\": \"ns1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"BI Builder\", \"col\": 3}}, {\"id\": \"ns2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Dashboards\", \"col\": 3}}, {\"id\": \"ns3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Saved Reports\", \"col\": 3}}, {\"id\": \"ns4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Report Schedules\", \"col\": 3}}, {\"id\": \"nsp\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"nc1\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}, {\"id\": \"nc2\", \"type\": \"card\", \"data\": {\"card_name\": \"Governance\", \"col\": 4}}]",
+ "creation": "2026-11-02 15:30:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "getting-started",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Neotec AI",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setup",
+   "link_count": 3,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Neotec Settings",
+   "link_count": 0,
+   "link_to": "Neotec Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Data Dictionary",
+   "link_count": 0,
+   "link_to": "Neotec Data Source",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sample Questions",
+   "link_count": 0,
+   "link_to": "Neotec Sample Question",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Governance",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "AI Logs",
+   "link_count": 0,
+   "link_to": "Neotec AI Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Report Schedules",
+   "link_count": 0,
+   "link_to": "Neotec Report Schedule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": ""
+  }
+ ],
+ "modified": "2026-11-02 15:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec AI",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 40.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "label": "BI Builder",
+   "link_to": "neotec-bi",
+   "type": "Page",
+   "doc_view": ""
+  },
+  {
+   "color": "Blue",
+   "label": "Dashboards",
+   "link_to": "neotec-dashboard",
+   "type": "Page",
+   "doc_view": ""
+  },
+  {
+   "color": "Grey",
+   "label": "Saved Reports",
+   "link_to": "Neotec AI Report",
+   "type": "DocType",
+   "doc_view": "List"
+  },
+  {
+   "color": "Grey",
+   "label": "Report Schedules",
+   "link_to": "Neotec Report Schedule",
+   "type": "DocType",
+   "doc_view": "List"
+  }
+ ],
+ "title": "Neotec AI"
+}

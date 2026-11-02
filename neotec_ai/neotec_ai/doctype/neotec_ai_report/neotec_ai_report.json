@@ -1,0 +1,157 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "NAI-RPT-.#####",
+ "creation": "2026-11-02 13:30:00.000000",
+ "description": "Reports created by Neotec AI. Data is re-run live with the viewer's permissions.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "description",
+  "column_break_1",
+  "report_doctype",
+  "source_prompt",
+  "section_chart",
+  "chart_type",
+  "column_break_2",
+  "chart_x",
+  "column_break_3",
+  "chart_y",
+  "section_result",
+  "preview_html",
+  "section_query",
+  "query_spec",
+  "viz_spec"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "report_doctype",
+   "fieldtype": "Link",
+   "options": "DocType",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Data Source",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_prompt",
+   "fieldtype": "Small Text",
+   "label": "Created from Question",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_chart",
+   "fieldtype": "Section Break",
+   "label": "Chart",
+   "hidden": 1
+  },
+  {
+   "fieldname": "chart_type",
+   "fieldtype": "Select",
+   "label": "Chart Type",
+   "options": "\nbar\nline\npie\ndonut\npercentage",
+   "description": "Leave empty for table only.",
+   "hidden": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "chart_x",
+   "fieldtype": "Data",
+   "label": "Chart Labels (X) Column(s)",
+   "description": "One or two result columns, comma-separated.",
+   "hidden": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "chart_y",
+   "fieldtype": "Data",
+   "label": "Chart Value (Y) Columns",
+   "description": "Numeric result columns, comma-separated.",
+   "hidden": 1
+  },
+  {
+   "fieldname": "section_result",
+   "fieldtype": "Section Break",
+   "label": "Live Result"
+  },
+  {
+   "fieldname": "preview_html",
+   "fieldtype": "HTML",
+   "label": "Preview"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_query",
+   "fieldtype": "Section Break",
+   "label": "Query (Advanced)"
+  },
+  {
+   "fieldname": "query_spec",
+   "fieldtype": "Code",
+   "label": "Query",
+   "options": "JSON",
+   "reqd": 1,
+   "description": "Query in Neotec BI format (source, joins, columns, filters, having, order_by, limit). Easier: use 'Open in BI Builder'."
+  },
+  {
+   "fieldname": "viz_spec",
+   "fieldtype": "Code",
+   "label": "Visualization",
+   "options": "JSON",
+   "description": "Chart / table / pivot / number settings."
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-02 15:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec AI Report",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "title,report_doctype",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

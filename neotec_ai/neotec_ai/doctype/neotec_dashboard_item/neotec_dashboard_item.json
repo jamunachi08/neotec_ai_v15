@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-02 15:30:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item_type",
+  "report",
+  "title",
+  "width",
+  "height",
+  "date_field",
+  "content"
+ ],
+ "fields": [
+  {
+   "default": "Report",
+   "fieldname": "item_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Report\nText",
+   "columns": 1
+  },
+  {
+   "depends_on": "eval:doc.item_type=='Report'",
+   "fieldname": "report",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Report",
+   "options": "Neotec AI Report",
+   "columns": 3
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title (optional)",
+   "columns": 2
+  },
+  {
+   "default": "6",
+   "fieldname": "width",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Width",
+   "options": "3\n4\n6\n8\n12",
+   "columns": 1,
+   "description": "Out of 12 columns."
+  },
+  {
+   "default": "Medium",
+   "fieldname": "height",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Height",
+   "options": "Small\nMedium\nLarge",
+   "columns": 1
+  },
+  {
+   "depends_on": "eval:doc.item_type=='Report'",
+   "fieldname": "date_field",
+   "fieldtype": "Data",
+   "label": "Date Field for Dashboard Filter",
+   "columns": 2,
+   "description": "e.g. Sales Invoice.posting_date. Leave empty to detect automatically."
+  },
+  {
+   "depends_on": "eval:doc.item_type=='Text'",
+   "fieldname": "content",
+   "fieldtype": "Small Text",
+   "label": "Text (Markdown)"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-02 15:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec Dashboard Item",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1,
+ "permissions": []
+}
