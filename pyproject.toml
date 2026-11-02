@@ -1,0 +1,19 @@
+[project]
+name = "neotec_ai"
+authors = [
+    { name = "Neotec AI Solutions", email = "support@neotec.ai" }
+]
+description = "White-labeled AI business assistant for Frappe / ERPNext with a governed data dictionary"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    # requests ships with Frappe; nothing extra required
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.frappe-dependencies]
+frappe = ">=15.0.0,<17.0.0"

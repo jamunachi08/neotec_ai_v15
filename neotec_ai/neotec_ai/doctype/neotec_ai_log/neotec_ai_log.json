@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-11-02 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "status",
+  "provider_used",
+  "model_used",
+  "column_break_1",
+  "tokens_used",
+  "execution_time_ms",
+  "query_rounds",
+  "reference_doctype",
+  "reference_docname",
+  "section_content",
+  "prompt",
+  "response",
+  "queries_executed",
+  "error"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Success\nError"
+  },
+  {
+   "fieldname": "provider_used",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Provider"
+  },
+  {
+   "fieldname": "model_used",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tokens_used",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Tokens Used"
+  },
+  {
+   "fieldname": "execution_time_ms",
+   "fieldtype": "Float",
+   "label": "Latency (ms)"
+  },
+  {
+   "fieldname": "query_rounds",
+   "fieldtype": "Int",
+   "label": "Query Rounds"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_docname",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Document",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "section_content",
+   "fieldtype": "Section Break",
+   "label": "Interaction"
+  },
+  {
+   "fieldname": "prompt",
+   "fieldtype": "Long Text",
+   "label": "User Prompt"
+  },
+  {
+   "fieldname": "response",
+   "fieldtype": "Long Text",
+   "label": "AI Response"
+  },
+  {
+   "fieldname": "queries_executed",
+   "fieldtype": "Code",
+   "label": "Queries Executed",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "error",
+   "fieldtype": "Small Text",
+   "label": "Error"
+  }
+ ],
+ "in_create": 1,
+ "issingle": 0,
+ "links": [],
+ "modified": "2026-11-02 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec AI Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
