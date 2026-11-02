@@ -1,0 +1,237 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-02 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_general",
+  "enable_ai",
+  "provider",
+  "model",
+  "column_break_gen",
+  "support_email",
+  "assistant_name",
+  "section_credentials",
+  "api_endpoint",
+  "api_key",
+  "column_break_cred",
+  "max_tokens",
+  "temperature",
+  "request_timeout",
+  "section_data",
+  "enable_db_queries",
+  "enable_doc_context",
+  "column_break_data",
+  "max_records_fetch",
+  "max_query_rounds",
+  "max_context_chars",
+  "max_report_rows",
+  "section_business",
+  "business_context",
+  "section_governance",
+  "rate_limit_per_hour",
+  "column_break_gov",
+  "log_retention_days",
+  "log_query_results"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_general",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_ai",
+   "fieldtype": "Check",
+   "label": "Enable Neotec AI"
+  },
+  {
+   "default": "Google Gemini",
+   "fieldname": "provider",
+   "fieldtype": "Select",
+   "label": "LLM Provider",
+   "options": "Google Gemini\nAnthropic Claude\nOpenAI\nOpenAI-Compatible / Ollama",
+   "reqd": 1
+  },
+  {
+   "default": "gemini-flash-latest",
+   "description": "Exact model ID from your provider. Changing the provider fills in a suggestion; check your provider's current model list.",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gen",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "support@neotec.ai",
+   "fieldname": "support_email",
+   "fieldtype": "Data",
+   "label": "Support Email",
+   "options": "Email"
+  },
+  {
+   "default": "Neotec AI",
+   "fieldname": "assistant_name",
+   "fieldtype": "Data",
+   "label": "Assistant Display Name"
+  },
+  {
+   "fieldname": "section_credentials",
+   "fieldtype": "Section Break",
+   "label": "API Credentials"
+  },
+  {
+   "description": "Optional base URL. Leave blank for the provider default. Examples: https://api.openai.com/v1, http://localhost:11434/v1 (Ollama), https://generativelanguage.googleapis.com/v1beta, https://api.anthropic.com/v1",
+   "fieldname": "api_endpoint",
+   "fieldtype": "Data",
+   "label": "API Base URL"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key",
+   "length": 512
+  },
+  {
+   "fieldname": "column_break_cred",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2048",
+   "fieldname": "max_tokens",
+   "fieldtype": "Int",
+   "label": "Max Response Tokens"
+  },
+  {
+   "default": "0.2",
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Temperature"
+  },
+  {
+   "default": "60",
+   "fieldname": "request_timeout",
+   "fieldtype": "Int",
+   "label": "Request Timeout (seconds)"
+  },
+  {
+   "fieldname": "section_data",
+   "fieldtype": "Section Break",
+   "label": "Business Data Access"
+  },
+  {
+   "default": "1",
+   "description": "Let the AI query the DocTypes registered in Neotec Data Source. Every query runs as the current user, with their permissions.",
+   "fieldname": "enable_db_queries",
+   "fieldtype": "Check",
+   "label": "Allow Database Questions"
+  },
+  {
+   "default": "1",
+   "description": "Send the readable fields of the document currently open on screen.",
+   "fieldname": "enable_doc_context",
+   "fieldtype": "Check",
+   "label": "Use Open Document as Context"
+  },
+  {
+   "fieldname": "column_break_data",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "50",
+   "fieldname": "max_records_fetch",
+   "fieldtype": "Int",
+   "label": "Max Rows per Query"
+  },
+  {
+   "default": "3",
+   "description": "How many rounds of queries the AI may run before it must answer.",
+   "fieldname": "max_query_rounds",
+   "fieldtype": "Int",
+   "label": "Max Query Rounds"
+  },
+  {
+   "default": "20000",
+   "description": "Upper limit on characters of data sent to the model per round.",
+   "fieldname": "max_context_chars",
+   "fieldtype": "Int",
+   "label": "Max Data Characters"
+  },
+  {
+   "default": "500",
+   "description": "Rows shown/exported in AI reports (max 5000).",
+   "fieldname": "max_report_rows",
+   "fieldtype": "Int",
+   "label": "Max Rows per Report"
+  },
+  {
+   "fieldname": "section_business",
+   "fieldtype": "Section Break",
+   "label": "Business Context"
+  },
+  {
+   "description": "Plain-language facts the AI should know: what the company does, fiscal year, base currency, internal terms and abbreviations, how KPIs are defined.",
+   "fieldname": "business_context",
+   "fieldtype": "Long Text",
+   "label": "Business Context & Glossary"
+  },
+  {
+   "fieldname": "section_governance",
+   "fieldtype": "Section Break",
+   "label": "Governance"
+  },
+  {
+   "default": "60",
+   "description": "Per user. 0 = unlimited.",
+   "fieldname": "rate_limit_per_hour",
+   "fieldtype": "Int",
+   "label": "Requests per Hour"
+  },
+  {
+   "fieldname": "column_break_gov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "90",
+   "description": "0 = keep forever.",
+   "fieldname": "log_retention_days",
+   "fieldtype": "Int",
+   "label": "Keep Logs for (days)"
+  },
+  {
+   "default": "0",
+   "description": "Off: logs record which queries ran, not the rows returned.",
+   "fieldname": "log_query_results",
+   "fieldtype": "Check",
+   "label": "Store Query Results in Logs"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-02 13:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
