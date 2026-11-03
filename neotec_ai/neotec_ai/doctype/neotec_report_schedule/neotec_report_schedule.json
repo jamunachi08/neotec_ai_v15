@@ -1,0 +1,209 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-02 15:30:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "enabled",
+  "column_break_1",
+  "reference_type",
+  "reference_name",
+  "timespan_override",
+  "section_when",
+  "frequency",
+  "weekday",
+  "day_of_month",
+  "column_break_2",
+  "send_hour",
+  "next_run",
+  "last_sent_on",
+  "section_who",
+  "recipients",
+  "attachment_format",
+  "column_break_3",
+  "subject",
+  "message",
+  "section_status",
+  "last_error",
+  "access_note"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Neotec AI Report",
+   "fieldname": "reference_type",
+   "fieldtype": "Select",
+   "label": "Send",
+   "options": "Neotec AI Report\nNeotec Dashboard",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Report / Dashboard",
+   "options": "reference_type",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.reference_type=='Neotec Dashboard'",
+   "fieldname": "timespan_override",
+   "fieldtype": "Select",
+   "label": "Period",
+   "options": "\ntoday\nyesterday\nthis week\nlast week\nthis month\nlast month\nthis quarter\nlast quarter\nthis year\nlast year\nlast 7 days\nlast 30 days\nlast 90 days\nlast 6 months\nlast 12 months\nyear to date\nmonth to date",
+   "description": "Leave empty to use the dashboard's default period."
+  },
+  {
+   "fieldname": "section_when",
+   "fieldtype": "Section Break",
+   "label": "When"
+  },
+  {
+   "default": "Weekly",
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Frequency",
+   "options": "Daily\nWeekly\nMonthly",
+   "reqd": 1
+  },
+  {
+   "default": "Monday",
+   "depends_on": "eval:doc.frequency=='Weekly'",
+   "fieldname": "weekday",
+   "fieldtype": "Select",
+   "label": "Day of Week",
+   "options": "Monday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
+  },
+  {
+   "default": "1",
+   "depends_on": "eval:doc.frequency=='Monthly'",
+   "fieldname": "day_of_month",
+   "fieldtype": "Int",
+   "label": "Day of Month",
+   "description": "1-31; short months use their last day."
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "7",
+   "fieldname": "send_hour",
+   "fieldtype": "Int",
+   "label": "Hour (0-23, site time zone)"
+  },
+  {
+   "fieldname": "next_run",
+   "fieldtype": "Datetime",
+   "label": "Next Send",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "last_sent_on",
+   "fieldtype": "Datetime",
+   "label": "Last Sent",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_who",
+   "fieldtype": "Section Break",
+   "label": "Recipients and Content"
+  },
+  {
+   "fieldname": "recipients",
+   "fieldtype": "Small Text",
+   "label": "Recipients",
+   "reqd": 1,
+   "description": "E-mail addresses, comma or new line separated."
+  },
+  {
+   "default": "Excel + PDF",
+   "fieldname": "attachment_format",
+   "fieldtype": "Select",
+   "label": "Attachment",
+   "options": "Excel\nPDF\nExcel + PDF\nCSV\nNone"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject",
+   "description": "Default: report title and date."
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_status",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "fieldname": "last_error",
+   "fieldtype": "Small Text",
+   "label": "Last Error",
+   "read_only": 1
+  },
+  {
+   "fieldname": "access_note",
+   "fieldtype": "HTML",
+   "label": "Access Note",
+   "options": "<div class='text-muted small'>The e-mail is generated with the permissions of the person who created this schedule. Recipients will see that person's data.</div>"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-02 15:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec Report Schedule",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "NAI-SCH-.#####",
+ "naming_rule": "Expression (old style)",
+ "title_field": "title",
+ "track_changes": 1,
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "description": "E-mail Neotec AI reports or dashboards on a schedule."
+}

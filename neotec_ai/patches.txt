@@ -1,0 +1,5 @@
+[pre_model_sync]
+
+[post_model_sync]
+neotec_ai.patches.v2_1.seed_meanings_questions_reports
+neotec_ai.patches.v3_1.reports_playbooks_history
