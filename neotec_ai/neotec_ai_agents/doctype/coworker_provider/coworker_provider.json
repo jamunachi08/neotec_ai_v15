@@ -1,0 +1,298 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "provider_name",
+  "preset",
+  "provider_type",
+  "enabled",
+  "is_default",
+  "cb1",
+  "data_location",
+  "last_test",
+  "tool_test_status",
+  "sb_conn",
+  "base_url",
+  "api_key",
+  "api_version",
+  "cb2",
+  "model",
+  "temperature",
+  "max_output_tokens",
+  "timeout",
+  "sb_cost",
+  "cost_input_per_million",
+  "cb_cost",
+  "cost_output_per_million",
+  "sb_selftest",
+  "tool_test_detail",
+  "cb_selftest",
+  "tool_test_on",
+  "tool_test_model",
+  "tool_test_ms",
+  "sb_limits",
+  "rpm_limit",
+  "rpd_limit",
+  "cb_limits",
+  "tpm_limit",
+  "tpd_limit",
+  "supports_vision"
+ ],
+ "fields": [
+  {
+   "fieldname": "provider_name",
+   "fieldtype": "Data",
+   "label": "Provider Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "preset",
+   "fieldtype": "Select",
+   "label": "Preset",
+   "options": "Custom\nGoogle Gemini\nOpenAI\nAnthropic Claude\nAzure OpenAI\nOllama (self-hosted)\nvLLM (self-hosted)\nOn-Premises (Ollama / vLLM)\nNeotecAI On-Premises\nOpenRouter (open models, free and paid)",
+   "default": "Custom"
+  },
+  {
+   "fieldname": "provider_type",
+   "fieldtype": "Select",
+   "label": "API Style",
+   "options": "OpenAI Compatible\nAnthropic\nAzure OpenAI",
+   "default": "OpenAI Compatible",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1"
+  },
+  {
+   "fieldname": "is_default",
+   "fieldtype": "Check",
+   "label": "Default Provider"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_location",
+   "fieldtype": "Select",
+   "label": "Data Location",
+   "options": "External\nIn Kingdom (KSA)\nOn-Premises",
+   "default": "External",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Where prompts and ERP data are processed. Drives residency guards."
+  },
+  {
+   "fieldname": "last_test",
+   "fieldtype": "Small Text",
+   "label": "Last Connection Test",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tool_test_status",
+   "fieldtype": "Select",
+   "label": "Tool-calling self-test",
+   "options": "Not tested\nPassed\nPartial\nFailed",
+   "default": "Not tested",
+   "read_only": 1,
+   "in_list_view": 1,
+   "description": "Playbooks refuse a provider whose model failed. Run it from the Test tool calling button."
+  },
+  {
+   "fieldname": "sb_conn",
+   "fieldtype": "Section Break",
+   "label": "Connection"
+  },
+  {
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Base URL",
+   "reqd": 1,
+   "description": "OpenAI compatible: up to /v1 (e.g. https://host/v1). Azure: https://NAME.openai.azure.com/openai/deployments/DEPLOYMENT"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key",
+   "description": "Leave empty for local servers that need no key."
+  },
+  {
+   "fieldname": "api_version",
+   "fieldtype": "Data",
+   "label": "API Version",
+   "depends_on": "eval:doc.provider_type=='Azure OpenAI'",
+   "default": "2024-10-21"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Temperature",
+   "default": "0.2"
+  },
+  {
+   "fieldname": "max_output_tokens",
+   "fieldtype": "Int",
+   "label": "Max Output Tokens",
+   "default": "2048"
+  },
+  {
+   "fieldname": "timeout",
+   "fieldtype": "Int",
+   "label": "Timeout (seconds)",
+   "default": "120"
+  },
+  {
+   "fieldname": "sb_cost",
+   "fieldtype": "Section Break",
+   "label": "Cost",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "cost_input_per_million",
+   "fieldtype": "Float",
+   "label": "Cost per 1M input tokens (USD)"
+  },
+  {
+   "fieldname": "cb_cost",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_output_per_million",
+   "fieldtype": "Float",
+   "label": "Cost per 1M output tokens (USD)"
+  },
+  {
+   "fieldname": "sb_selftest",
+   "fieldtype": "Section Break",
+   "label": "Tool-calling self-test",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "tool_test_detail",
+   "fieldtype": "Small Text",
+   "label": "Result",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_selftest",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tool_test_on",
+   "fieldtype": "Datetime",
+   "label": "Tested on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tool_test_model",
+   "fieldtype": "Data",
+   "label": "Model tested",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tool_test_ms",
+   "fieldtype": "Int",
+   "label": "Duration (ms)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_limits",
+   "fieldtype": "Section Break",
+   "label": "Limits and capabilities",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "rpm_limit",
+   "fieldtype": "Int",
+   "label": "Requests per Minute",
+   "description": "0 = no limit. When reached, the next provider in the route is used."
+  },
+  {
+   "fieldname": "rpd_limit",
+   "fieldtype": "Int",
+   "label": "Requests per Day"
+  },
+  {
+   "fieldname": "cb_limits",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tpm_limit",
+   "fieldtype": "Int",
+   "label": "Tokens per Minute"
+  },
+  {
+   "fieldname": "tpd_limit",
+   "fieldtype": "Int",
+   "label": "Tokens per Day"
+  },
+  {
+   "fieldname": "supports_vision",
+   "fieldtype": "Check",
+   "label": "Reads Images",
+   "description": "Used for bank-slip reading and other image requests."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Provider",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:provider_name",
+ "naming_rule": "By fieldname",
+ "title_field": "provider_name",
+ "show_title_field_in_link": 0
+}

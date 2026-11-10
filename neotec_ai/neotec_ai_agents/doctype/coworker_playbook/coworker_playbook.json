@@ -1,0 +1,313 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-01 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "playbook_name",
+  "title_ar",
+  "enabled",
+  "is_standard",
+  "cb1",
+  "pack",
+  "category",
+  "coworker",
+  "mode",
+  "provider",
+  "sb_param",
+  "parameter_label",
+  "default_parameter",
+  "cb2",
+  "parameter_help",
+  "sb_instr",
+  "description",
+  "description_ar",
+  "instructions",
+  "required_tools",
+  "sb_out",
+  "silent_when_empty",
+  "default_severity",
+  "dedupe_days",
+  "cb3",
+  "include_previous_output",
+  "channels",
+  "sb_lim",
+  "max_steps",
+  "max_tool_calls",
+  "cb4",
+  "max_tokens",
+  "sb_state",
+  "last_run",
+  "cb5",
+  "last_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "playbook_name",
+   "fieldtype": "Data",
+   "label": "Playbook",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "title_ar",
+   "fieldtype": "Data",
+   "label": "Title (Arabic)"
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_standard",
+   "fieldtype": "Check",
+   "label": "Standard",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pack",
+   "fieldtype": "Link",
+   "label": "Pack",
+   "options": "Coworker Pack",
+   "in_standard_filter": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "General\nFinance\nSales\nProcurement\nStock\nHR\nCompliance\nOperations",
+   "default": "General",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "coworker",
+   "fieldtype": "Link",
+   "label": "Coworker",
+   "options": "AI Coworker",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "The playbook uses this coworker's tools, and nothing more."
+  },
+  {
+   "fieldname": "mode",
+   "fieldtype": "Select",
+   "label": "Mode",
+   "options": "Read Only\nDraft Changes",
+   "default": "Read Only",
+   "reqd": 1,
+   "description": "Read Only removes every tool that changes data. Draft Changes still goes through policy and approvals; scheduled and triggered runs never change data."
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "label": "AI provider (override)",
+   "options": "Coworker Provider"
+  },
+  {
+   "fieldname": "sb_param",
+   "fieldtype": "Section Break",
+   "label": "Parameter"
+  },
+  {
+   "fieldname": "parameter_label",
+   "fieldtype": "Data",
+   "label": "Parameter label",
+   "description": "e.g. 'Warehouse' or 'Days ahead'. Empty = no parameter."
+  },
+  {
+   "fieldname": "default_parameter",
+   "fieldtype": "Data",
+   "label": "Default value"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parameter_help",
+   "fieldtype": "Small Text",
+   "label": "Parameter help"
+  },
+  {
+   "fieldname": "sb_instr",
+   "fieldtype": "Section Break",
+   "label": "What to do"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "in_list_view": 0
+  },
+  {
+   "fieldname": "description_ar",
+   "fieldtype": "Small Text",
+   "label": "Description (Arabic)"
+  },
+  {
+   "fieldname": "instructions",
+   "fieldtype": "Long Text",
+   "label": "Instructions",
+   "reqd": 1,
+   "description": "Write the task for the coworker. {parameter} and {today} are replaced at run time."
+  },
+  {
+   "fieldname": "required_tools",
+   "fieldtype": "Small Text",
+   "label": "Required tools",
+   "description": "Comma separated tool names. The health check warns when the coworker lacks one."
+  },
+  {
+   "fieldname": "sb_out",
+   "fieldtype": "Section Break",
+   "label": "Output"
+  },
+  {
+   "fieldname": "silent_when_empty",
+   "fieldtype": "Check",
+   "label": "Stay silent when nothing is new",
+   "default": "1"
+  },
+  {
+   "fieldname": "default_severity",
+   "fieldtype": "Select",
+   "label": "Default severity",
+   "options": "info\nsuccess\nwarn\ncritical",
+   "default": "info"
+  },
+  {
+   "fieldname": "dedupe_days",
+   "fieldtype": "Int",
+   "label": "Do not repeat findings for (days)",
+   "default": "3",
+   "description": "0 = report everything every run. Above 0, findings already reported in this window are left out."
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "include_previous_output",
+   "fieldtype": "Check",
+   "label": "Show the coworker its previous result",
+   "default": "1"
+  },
+  {
+   "fieldname": "channels",
+   "fieldtype": "Table",
+   "label": "Deliver to",
+   "options": "Coworker Run Channel",
+   "description": "Used for manual, triggered and chain runs. A routine's own delivery settings win."
+  },
+  {
+   "fieldname": "sb_lim",
+   "fieldtype": "Section Break",
+   "label": "Limits",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "max_steps",
+   "fieldtype": "Int",
+   "label": "Max steps",
+   "description": "Empty = coworker / global setting."
+  },
+  {
+   "fieldname": "max_tool_calls",
+   "fieldtype": "Int",
+   "label": "Max tool calls",
+   "description": "Empty = global setting. Raise for sweeps that check many documents."
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "max_tokens",
+   "fieldtype": "Int",
+   "label": "Max tokens per run",
+   "description": "Empty or 0 = no limit."
+  },
+  {
+   "fieldname": "sb_state",
+   "fieldtype": "Section Break",
+   "label": "Last run",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "last_run",
+   "fieldtype": "Datetime",
+   "label": "Last run",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_status",
+   "fieldtype": "Data",
+   "label": "Last status",
+   "read_only": 1,
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Playbook",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker User",
+   "read": 1,
+   "permlevel": 0,
+   "report": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:playbook_name",
+ "naming_rule": "By fieldname",
+ "title_field": "playbook_name",
+ "show_title_field_in_link": 0
+}

@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-01 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "status",
+  "severity",
+  "category",
+  "cb1",
+  "fingerprint",
+  "playbook",
+  "routine",
+  "trigger",
+  "chain",
+  "provider",
+  "sb1",
+  "detail",
+  "fix_hint",
+  "resolution",
+  "sb2",
+  "first_seen",
+  "last_seen",
+  "cb2",
+  "occurrences",
+  "resolved_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nResolved\nIgnored",
+   "default": "Open",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "info\nwarn\ncritical",
+   "default": "warn",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Failing Runs\nLow Quality\nConfiguration\nProvider\nBudget",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fingerprint",
+   "fieldtype": "Data",
+   "label": "Fingerprint",
+   "unique": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "playbook",
+   "fieldtype": "Link",
+   "label": "Playbook",
+   "options": "Coworker Playbook"
+  },
+  {
+   "fieldname": "routine",
+   "fieldtype": "Link",
+   "label": "Routine",
+   "options": "Coworker Routine"
+  },
+  {
+   "fieldname": "trigger",
+   "fieldtype": "Link",
+   "label": "Trigger",
+   "options": "Coworker Trigger"
+  },
+  {
+   "fieldname": "chain",
+   "fieldtype": "Link",
+   "label": "Chain",
+   "options": "Coworker Chain"
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "label": "AI provider",
+   "options": "Coworker Provider"
+  },
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "detail",
+   "fieldtype": "Long Text",
+   "label": "What was found",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fix_hint",
+   "fieldtype": "Small Text",
+   "label": "How to fix",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resolution",
+   "fieldtype": "Small Text",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "History",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "first_seen",
+   "fieldtype": "Datetime",
+   "label": "First seen",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_seen",
+   "fieldtype": "Datetime",
+   "label": "Last seen",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "occurrences",
+   "fieldtype": "Int",
+   "label": "Occurrences",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resolved_on",
+   "fieldtype": "Datetime",
+   "label": "Resolved on",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Issue",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "format:CWI-{#####}",
+ "naming_rule": "Expression",
+ "title_field": "title",
+ "show_title_field_in_link": 0
+}

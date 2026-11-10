@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-01 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "playbook",
+  "parameter",
+  "use_previous",
+  "deliver"
+ ],
+ "fields": [
+  {
+   "fieldname": "playbook",
+   "fieldtype": "Link",
+   "label": "Playbook",
+   "options": "Coworker Playbook",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 4
+  },
+  {
+   "fieldname": "parameter",
+   "fieldtype": "Data",
+   "label": "Parameter",
+   "in_list_view": 1,
+   "columns": 3,
+   "description": "Leave empty to use the chain parameter or the playbook default."
+  },
+  {
+   "fieldname": "use_previous",
+   "fieldtype": "Check",
+   "label": "Use earlier results",
+   "default": "1",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "deliver",
+   "fieldtype": "Check",
+   "label": "Deliver this step",
+   "default": "0",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "The last step always delivers."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Chain Step",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1,
+ "editable_grid": 1
+}

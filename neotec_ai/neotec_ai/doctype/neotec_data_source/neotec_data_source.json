@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:source_doctype",
+ "creation": "2026-11-02 09:00:00.000000",
+ "description": "Data Dictionary entry: a DocType the AI may query, the fields it may use, and what they mean.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "source_doctype",
+  "enabled",
+  "submitted_only",
+  "column_break_1",
+  "is_child_table",
+  "parent_doctype",
+  "section_meaning",
+  "description",
+  "sample_questions",
+  "section_fields",
+  "meaning_guide",
+  "data_fields"
+ ],
+ "fields": [
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "DocType",
+   "options": "DocType",
+   "reqd": 1,
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "default": "1",
+   "description": "For submittable DocTypes, only query submitted records (excludes drafts and cancelled).",
+   "fieldname": "submitted_only",
+   "fieldtype": "Check",
+   "label": "Submitted Records Only"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_child_table",
+   "fieldtype": "Check",
+   "label": "Is Child Table",
+   "read_only": 1
+  },
+  {
+   "depends_on": "is_child_table",
+   "description": "Parent DocType whose permissions apply, e.g. Sales Invoice for Sales Invoice Item.",
+   "fieldname": "parent_doctype",
+   "fieldtype": "Link",
+   "label": "Parent DocType",
+   "mandatory_depends_on": "is_child_table",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "section_meaning",
+   "fieldtype": "Section Break",
+   "label": "Meaning"
+  },
+  {
+   "description": "What this data represents and the rules for using it. Example: \"Customer invoices = our revenue. Use base_grand_total for amounts in SAR. Exclude credit notes (is_return = 1) for gross sales. 'Overdue' means past due_date with outstanding_amount > 0.\"",
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description for AI",
+   "reqd": 1
+  },
+  {
+   "description": "One per line. Example: \"Revenue by month this year\" / \"Top 10 customers by sales\" / \"Overdue invoices over 30 days\"",
+   "fieldname": "sample_questions",
+   "fieldtype": "Small Text",
+   "label": "Sample Questions"
+  },
+  {
+   "fieldname": "section_fields",
+   "fieldtype": "Section Break",
+   "label": "Queryable Fields"
+  },
+  {
+   "fieldname": "meaning_guide",
+   "fieldtype": "HTML",
+   "label": "Meaning Guide"
+  },
+  {
+   "description": "Only these fields can be selected, filtered or grouped by the AI. Use 'Load Fields' to fill from the DocType.",
+   "fieldname": "data_fields",
+   "fieldtype": "Table",
+   "label": "Fields",
+   "options": "Neotec Data Field"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-02 13:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec Data Source",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "source_doctype",
+ "track_changes": 1
+}

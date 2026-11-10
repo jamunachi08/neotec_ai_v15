@@ -1,0 +1,207 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "coworker_name",
+  "title",
+  "title_ar",
+  "enabled",
+  "cb1",
+  "icon",
+  "color",
+  "provider",
+  "temperature",
+  "sb_role",
+  "description",
+  "description_ar",
+  "instructions",
+  "starter_prompts",
+  "sb_tools",
+  "tools",
+  "sb_access",
+  "allowed_roles",
+  "cb3",
+  "use_knowledge",
+  "use_memory",
+  "max_steps",
+  "chat_visible"
+ ],
+ "fields": [
+  {
+   "fieldname": "coworker_name",
+   "fieldtype": "Data",
+   "label": "Coworker Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Job Title",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "title_ar",
+   "fieldtype": "Data",
+   "label": "Job Title (Arabic)"
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "icon",
+   "fieldtype": "Data",
+   "label": "Icon (emoji)",
+   "default": "🤖"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Accent Colour"
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "label": "AI Provider",
+   "options": "Coworker Provider",
+   "description": "Leave empty to use the default provider."
+  },
+  {
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Temperature Override"
+  },
+  {
+   "fieldname": "sb_role",
+   "fieldtype": "Section Break",
+   "label": "Role"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "What this coworker does"
+  },
+  {
+   "fieldname": "description_ar",
+   "fieldtype": "Small Text",
+   "label": "What this coworker does (Arabic)"
+  },
+  {
+   "fieldname": "instructions",
+   "fieldtype": "Long Text",
+   "label": "Instructions",
+   "description": "Standing instructions. Policies, not instructions, decide what it may do."
+  },
+  {
+   "fieldname": "starter_prompts",
+   "fieldtype": "Small Text",
+   "label": "Starter Prompts",
+   "description": "One per line."
+  },
+  {
+   "fieldname": "sb_tools",
+   "fieldtype": "Section Break",
+   "label": "Tools"
+  },
+  {
+   "fieldname": "tools",
+   "fieldtype": "Table",
+   "label": "Granted Tools",
+   "options": "Coworker Tool Grant"
+  },
+  {
+   "fieldname": "sb_access",
+   "fieldtype": "Section Break",
+   "label": "Access & Behaviour"
+  },
+  {
+   "fieldname": "allowed_roles",
+   "fieldtype": "Table",
+   "label": "Who can use it",
+   "options": "Coworker Allowed Role",
+   "description": "Empty = every Coworker User."
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "use_knowledge",
+   "fieldtype": "Check",
+   "label": "Use knowledge base",
+   "default": "1"
+  },
+  {
+   "fieldname": "use_memory",
+   "fieldtype": "Check",
+   "label": "Use personal memory",
+   "default": "1"
+  },
+  {
+   "fieldname": "max_steps",
+   "fieldtype": "Int",
+   "label": "Max Steps Override"
+  },
+  {
+   "fieldname": "chat_visible",
+   "fieldtype": "Check",
+   "label": "Visible in chat",
+   "default": "1",
+   "description": "Untick for service coworkers (e.g. the MCP gateway)."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "AI Coworker",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:coworker_name",
+ "naming_rule": "By fieldname",
+ "title_field": "coworker_name",
+ "show_title_field_in_link": 0
+}

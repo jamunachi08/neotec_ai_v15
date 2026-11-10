@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tool_name",
+  "label",
+  "category",
+  "enabled",
+  "cb1",
+  "is_write",
+  "risk_level",
+  "source",
+  "sb2",
+  "description",
+  "parameters_schema",
+  "auto_granted"
+ ],
+ "fields": [
+  {
+   "fieldname": "tool_name",
+   "fieldtype": "Data",
+   "label": "Tool Name",
+   "reqd": 1,
+   "unique": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "Label",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Data\nFinance\nStock\nKSA Compliance\nKnowledge\nMemory\nInterface\nActions\nAutomation\nExternal (MCP)\nExtension",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "is_write",
+   "fieldtype": "Check",
+   "label": "Changes Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "description": "Write tools need approval unless a grant is Auto or a policy allows them."
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "Low\nMedium\nHigh",
+   "default": "Low",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": "Built-in\nExtension\nMCP",
+   "read_only": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Definition"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parameters_schema",
+   "fieldtype": "Code",
+   "label": "Parameters (JSON Schema)",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "auto_granted",
+   "fieldtype": "Check",
+   "label": "Granted By Upgrade",
+   "read_only": 1,
+   "hidden": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "in_create": 1,
+ "autoname": "field:tool_name",
+ "naming_rule": "By fieldname",
+ "title_field": "label",
+ "show_title_field_in_link": 0
+}

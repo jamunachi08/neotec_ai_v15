@@ -1,0 +1,165 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-01 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "channel_name",
+  "enabled",
+  "channel_type",
+  "cb1",
+  "min_severity",
+  "sb_target",
+  "users",
+  "email_recipients",
+  "webhook_url",
+  "telegram_bot_token",
+  "telegram_chat_id",
+  "sb_state",
+  "last_delivery",
+  "cb2",
+  "last_error"
+ ],
+ "fields": [
+  {
+   "fieldname": "channel_name",
+   "fieldtype": "Data",
+   "label": "Channel",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "channel_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Bell\nEmail\nSlack\nMicrosoft Teams\nGoogle Chat\nTelegram\nGeneric Webhook",
+   "reqd": 1,
+   "default": "Bell",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "min_severity",
+   "fieldtype": "Select",
+   "label": "Minimum severity",
+   "options": "info\nsuccess\nwarn\ncritical",
+   "default": "info",
+   "in_list_view": 1,
+   "description": "Results below this severity are not sent here."
+  },
+  {
+   "fieldname": "sb_target",
+   "fieldtype": "Section Break",
+   "label": "Where to send"
+  },
+  {
+   "fieldname": "users",
+   "fieldtype": "Small Text",
+   "label": "Users (Bell)",
+   "depends_on": "eval:doc.channel_type==\"Bell\"",
+   "description": "One user per line. Empty = the user the run works for."
+  },
+  {
+   "fieldname": "email_recipients",
+   "fieldtype": "Small Text",
+   "label": "E-mail recipients",
+   "depends_on": "eval:doc.channel_type==\"Email\"",
+   "description": "Comma separated. Empty = the user the run works for."
+  },
+  {
+   "fieldname": "webhook_url",
+   "fieldtype": "Password",
+   "label": "Webhook URL",
+   "depends_on": "eval:[\"Slack\",\"Microsoft Teams\",\"Google Chat\",\"Generic Webhook\"].includes(doc.channel_type)"
+  },
+  {
+   "fieldname": "telegram_bot_token",
+   "fieldtype": "Password",
+   "label": "Telegram bot token",
+   "depends_on": "eval:doc.channel_type==\"Telegram\""
+  },
+  {
+   "fieldname": "telegram_chat_id",
+   "fieldtype": "Data",
+   "label": "Telegram chat ID",
+   "depends_on": "eval:doc.channel_type==\"Telegram\""
+  },
+  {
+   "fieldname": "sb_state",
+   "fieldtype": "Section Break",
+   "label": "Status",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "last_delivery",
+   "fieldtype": "Datetime",
+   "label": "Last delivery",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_error",
+   "fieldtype": "Small Text",
+   "label": "Last error",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Channel",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:channel_name",
+ "naming_rule": "By fieldname",
+ "title_field": "channel_name",
+ "show_title_field_in_link": 0
+}

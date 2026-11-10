@@ -1,0 +1,160 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rule_title",
+  "enabled",
+  "effect",
+  "priority",
+  "cb1",
+  "tool_pattern",
+  "target_doctype",
+  "coworker",
+  "initiator",
+  "applies_to_role",
+  "sb2",
+  "condition",
+  "approver_role",
+  "message"
+ ],
+ "fields": [
+  {
+   "fieldname": "rule_title",
+   "fieldtype": "Data",
+   "label": "Rule",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "effect",
+   "fieldtype": "Select",
+   "label": "Effect",
+   "options": "Deny\nRequire Approval\nAllow",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "description": "Deny beats Require Approval, which beats Allow."
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Display Order",
+   "default": "10"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tool_pattern",
+   "fieldtype": "Data",
+   "label": "Tool Pattern",
+   "default": "*",
+   "in_list_view": 1,
+   "description": "Glob, e.g. * or send_email or *_draft_document or mcp_*"
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Link",
+   "label": "Only for DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "coworker",
+   "fieldtype": "Link",
+   "label": "Only for Coworker",
+   "options": "AI Coworker"
+  },
+  {
+   "fieldname": "initiator",
+   "fieldtype": "Select",
+   "label": "Only when started by",
+   "options": "Any\nChat\nForm\nRoutine\nMCP\nDelegated\nBrief",
+   "default": "Any"
+  },
+  {
+   "fieldname": "applies_to_role",
+   "fieldtype": "Link",
+   "label": "Only for users with Role",
+   "options": "Role"
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Condition & Outcome"
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Code",
+   "label": "Condition (optional)",
+   "options": "Python",
+   "description": "Python expression. Names: tool, args, doctype, is_write, risk, user, roles, coworker, initiator. Example: doctype == 'Payment Entry' and flt(args.get('paid_amount')) > 50000"
+  },
+  {
+   "fieldname": "approver_role",
+   "fieldtype": "Link",
+   "label": "Approver Role",
+   "options": "Role",
+   "depends_on": "eval:doc.effect=='Require Approval'",
+   "description": "When set, someone else with this role must approve (segregation of duties)."
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message shown when applied"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Policy Rule",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:rule_title",
+ "naming_rule": "By fieldname",
+ "title_field": "rule_title",
+ "show_title_field_in_link": 0
+}

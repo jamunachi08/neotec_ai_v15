@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-02 15:30:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "description",
+  "column_break_1",
+  "default_timespan",
+  "enable_company_filter",
+  "open_dashboard",
+  "section_items",
+  "items"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_timespan",
+   "fieldtype": "Select",
+   "label": "Default Period",
+   "options": "\ntoday\nyesterday\nthis week\nlast week\nthis month\nlast month\nthis quarter\nlast quarter\nthis year\nlast year\nlast 7 days\nlast 30 days\nlast 90 days\nlast 6 months\nlast 12 months\nyear to date\nmonth to date",
+   "description": "Applied to every chart's date field when the dashboard opens."
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_company_filter",
+   "fieldtype": "Check",
+   "label": "Show Company Filter"
+  },
+  {
+   "fieldname": "open_dashboard",
+   "fieldtype": "Button",
+   "label": "Open Dashboard"
+  },
+  {
+   "fieldname": "section_items",
+   "fieldtype": "Section Break",
+   "label": "Charts and Cards"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Neotec Dashboard Item"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-02 15:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec Dashboard",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "NAI-DB-.#####",
+ "naming_rule": "Expression (old style)",
+ "title_field": "title",
+ "show_title_field_in_link": 1,
+ "search_fields": "title",
+ "track_changes": 1,
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "description": "BI dashboards built from Neotec AI reports. Each viewer sees data according to their own permissions."
+}

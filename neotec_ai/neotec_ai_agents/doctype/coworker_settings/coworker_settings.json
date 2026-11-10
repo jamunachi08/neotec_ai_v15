@@ -1,0 +1,396 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "setup_completed",
+  "cb_gen",
+  "default_provider",
+  "show_form_button",
+  "sb_res",
+  "residency_mode",
+  "redact_external",
+  "cb_res",
+  "sensitive_doctypes",
+  "sb_lim",
+  "max_steps",
+  "max_tool_calls",
+  "history_window",
+  "cb_lim",
+  "tool_result_char_limit",
+  "daily_token_limit",
+  "audit_retention_days",
+  "sb_appr",
+  "allow_self_approval",
+  "cb_appr",
+  "approval_expiry_hours",
+  "sb_rout",
+  "max_routines_per_user",
+  "cb_rout",
+  "max_routine_failures",
+  "sb_mcp",
+  "mcp_enabled",
+  "mcp_coworker",
+  "cb_mcp",
+  "mcp_endpoint",
+  "sb_instr",
+  "base_instructions",
+  "sb_auto",
+  "strategy",
+  "cb_auto",
+  "voice",
+  "sb_run",
+  "fallback_provider",
+  "scoring_provider",
+  "score_runs",
+  "cb_run",
+  "monthly_automation_tokens",
+  "failures_before_issue",
+  "low_score_threshold",
+  "run_retention_days",
+  "health_channel",
+  "sb_v4",
+  "tool_discovery_threshold",
+  "cb_v4",
+  "allow_delegation"
+ ],
+ "fields": [
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enable Neotec AI",
+   "default": "1",
+   "description": "Master switch. When off, no coworker can run, act or answer the MCP endpoint."
+  },
+  {
+   "fieldname": "setup_completed",
+   "fieldtype": "Check",
+   "label": "Setup Completed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_gen",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_provider",
+   "fieldtype": "Link",
+   "label": "Default AI Provider",
+   "options": "Coworker Provider"
+  },
+  {
+   "fieldname": "show_form_button",
+   "fieldtype": "Check",
+   "label": "Show 'Ask Coworker' on forms",
+   "default": "1"
+  },
+  {
+   "fieldname": "sb_res",
+   "fieldtype": "Section Break",
+   "label": "Data Residency & Privacy (PDPL)"
+  },
+  {
+   "fieldname": "residency_mode",
+   "fieldtype": "Select",
+   "label": "Residency Mode",
+   "options": "Guarded\nStrict\nOpen",
+   "default": "Guarded",
+   "description": "Strict: external providers are blocked entirely. Guarded: sensitive DocTypes never reach an external provider. Open: no residency checks."
+  },
+  {
+   "fieldname": "redact_external",
+   "fieldtype": "Check",
+   "label": "Mask personal data sent to external providers",
+   "default": "1",
+   "description": "Masks national ID / Iqama, IBAN, card numbers, mobile numbers and e-mails before a message leaves for an External provider."
+  },
+  {
+   "fieldname": "cb_res",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sensitive_doctypes",
+   "fieldtype": "Table",
+   "label": "Sensitive DocTypes",
+   "options": "Coworker Sensitive DocType"
+  },
+  {
+   "fieldname": "sb_lim",
+   "fieldtype": "Section Break",
+   "label": "Limits & Cost Control"
+  },
+  {
+   "fieldname": "max_steps",
+   "fieldtype": "Int",
+   "label": "Max reasoning steps per turn",
+   "default": "8"
+  },
+  {
+   "fieldname": "max_tool_calls",
+   "fieldtype": "Int",
+   "label": "Max tool calls per turn",
+   "default": "12"
+  },
+  {
+   "fieldname": "history_window",
+   "fieldtype": "Int",
+   "label": "Messages kept in context",
+   "default": "30"
+  },
+  {
+   "fieldname": "cb_lim",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tool_result_char_limit",
+   "fieldtype": "Int",
+   "label": "Tool result size limit (chars)",
+   "default": "12000"
+  },
+  {
+   "fieldname": "daily_token_limit",
+   "fieldtype": "Int",
+   "label": "Daily token limit per user",
+   "default": "0",
+   "description": "0 = unlimited."
+  },
+  {
+   "fieldname": "audit_retention_days",
+   "fieldtype": "Int",
+   "label": "Audit retention (days)",
+   "default": "0",
+   "description": "0 = keep forever (recommended for NCA ECC evidence)."
+  },
+  {
+   "fieldname": "sb_appr",
+   "fieldtype": "Section Break",
+   "label": "Approvals"
+  },
+  {
+   "fieldname": "allow_self_approval",
+   "fieldtype": "Check",
+   "label": "Let users confirm their own coworker's actions",
+   "default": "1",
+   "description": "Applies when a policy does not name an approver role. With an approver role, the requester can never approve (segregation of duties)."
+  },
+  {
+   "fieldname": "cb_appr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_expiry_hours",
+   "fieldtype": "Int",
+   "label": "Approval expiry (hours)",
+   "default": "72"
+  },
+  {
+   "fieldname": "sb_rout",
+   "fieldtype": "Section Break",
+   "label": "Routines"
+  },
+  {
+   "fieldname": "max_routines_per_user",
+   "fieldtype": "Int",
+   "label": "Max enabled routines per user",
+   "default": "20"
+  },
+  {
+   "fieldname": "cb_rout",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "max_routine_failures",
+   "fieldtype": "Int",
+   "label": "Disable routine after consecutive failures",
+   "default": "5"
+  },
+  {
+   "fieldname": "sb_mcp",
+   "fieldtype": "Section Break",
+   "label": "MCP Endpoint"
+  },
+  {
+   "fieldname": "mcp_enabled",
+   "fieldtype": "Check",
+   "label": "Expose ERPNext as a governed MCP server",
+   "default": "0"
+  },
+  {
+   "fieldname": "mcp_coworker",
+   "fieldtype": "Link",
+   "label": "MCP coworker (defines granted tools)",
+   "options": "AI Coworker",
+   "depends_on": "mcp_enabled"
+  },
+  {
+   "fieldname": "cb_mcp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mcp_endpoint",
+   "fieldtype": "Data",
+   "label": "Endpoint",
+   "read_only": 1,
+   "default": "/api/method/neotec_ai.agents.mcp.server.handle"
+  },
+  {
+   "fieldname": "sb_instr",
+   "fieldtype": "Section Break",
+   "label": "Organisation Instructions"
+  },
+  {
+   "fieldname": "base_instructions",
+   "fieldtype": "Long Text",
+   "label": "Instructions every coworker follows",
+   "description": "House rules, tone, terminology. Bilingual text is fine."
+  },
+  {
+   "fieldname": "sb_auto",
+   "fieldtype": "Section Break",
+   "label": "Automation: priorities and voice"
+  },
+  {
+   "fieldname": "strategy",
+   "fieldtype": "Long Text",
+   "label": "Company priorities and hard limits",
+   "description": "Short: what matters most now, who the output is for, lines never to cross. Every coworker and playbook reads this. Real enforcement still comes from policy rules."
+  },
+  {
+   "fieldname": "cb_auto",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "voice",
+   "fieldtype": "Small Text",
+   "label": "Voice for reports and messages",
+   "description": "e.g. 'Formal, short sentences, figures first, Arabic for staff, English for management.'"
+  },
+  {
+   "fieldname": "sb_run",
+   "fieldtype": "Section Break",
+   "label": "Automation: providers, budget and health"
+  },
+  {
+   "fieldname": "fallback_provider",
+   "fieldtype": "Link",
+   "options": "Coworker Provider",
+   "label": "Fallback AI provider",
+   "description": "Used when the main provider fails. Only used if it keeps data at least as close as the main one."
+  },
+  {
+   "fieldname": "scoring_provider",
+   "fieldtype": "Link",
+   "options": "Coworker Provider",
+   "label": "Quality scoring provider",
+   "description": "A small, cheap model is enough."
+  },
+  {
+   "fieldname": "score_runs",
+   "fieldtype": "Check",
+   "label": "Score playbook results",
+   "default": "0"
+  },
+  {
+   "fieldname": "cb_run",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "monthly_automation_tokens",
+   "fieldtype": "Int",
+   "label": "Monthly token budget for automation",
+   "default": "0",
+   "description": "Playbook runs stop when this month's total is reached. 0 = no limit."
+  },
+  {
+   "fieldname": "failures_before_issue",
+   "fieldtype": "Int",
+   "label": "Failed runs before an issue is opened",
+   "default": "3"
+  },
+  {
+   "fieldname": "low_score_threshold",
+   "fieldtype": "Int",
+   "label": "Low quality below average score",
+   "default": "2"
+  },
+  {
+   "fieldname": "run_retention_days",
+   "fieldtype": "Int",
+   "label": "Keep run history (days)",
+   "default": "90",
+   "description": "Older automated runs and their conversations are removed. 0 = keep for ever."
+  },
+  {
+   "fieldname": "health_channel",
+   "fieldtype": "Link",
+   "options": "Coworker Channel",
+   "label": "Send health changes to"
+  },
+  {
+   "fieldname": "sb_v4",
+   "fieldtype": "Section Break",
+   "label": "Tools and delegation"
+  },
+  {
+   "fieldname": "tool_discovery_threshold",
+   "fieldtype": "Int",
+   "label": "Load Tools On Demand Above",
+   "default": "20",
+   "description": "A coworker with more granted tools starts with core tools and finds the rest with find_tools. 0 = always send every tool."
+  },
+  {
+   "fieldname": "cb_v4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "allow_delegation",
+   "fieldtype": "Check",
+   "label": "Coworkers May Delegate",
+   "default": "1",
+   "description": "A coworker granted delegate_task can hand a sub-task to another coworker (one level, same user and permissions)."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "issingle": 1
+}

@@ -1,0 +1,121 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-03 09:40:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "enabled",
+  "always_include",
+  "column_break_1",
+  "roles",
+  "use_count",
+  "last_used",
+  "section_trigger",
+  "description",
+  "section_content",
+  "content"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "default": "0",
+   "fieldname": "always_include",
+   "fieldtype": "Check",
+   "label": "Always Include",
+   "description": "Send this playbook with every question. Use only for short, universal rules (e.g. fiscal year, currency rules); otherwise the AI loads it when relevant."
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "roles",
+   "fieldtype": "Table MultiSelect",
+   "label": "Only for Roles",
+   "options": "Neotec Playbook Role",
+   "description": "Leave empty for all AI users."
+  },
+  {
+   "fieldname": "use_count",
+   "fieldtype": "Int",
+   "label": "Times Used",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_used",
+   "fieldtype": "Datetime",
+   "label": "Last Used",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_trigger",
+   "fieldtype": "Section Break",
+   "label": "When to Use"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "When Should the AI Use This?",
+   "reqd": 1,
+   "description": "This line is what the AI sees until it opens the playbook, so name the situations: 'Use when asked about sales commission, incentives or sales-person payouts.'"
+  },
+  {
+   "fieldname": "section_content",
+   "fieldtype": "Section Break",
+   "label": "Instructions"
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Markdown Editor",
+   "label": "Content",
+   "reqd": 1,
+   "description": "Your company's rules, definitions and steps: which report or fields to use, how a KPI is calculated, exceptions. Write it as you would brief a new analyst."
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-03 09:40:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec Playbook",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "NAI-PB-.####",
+ "naming_rule": "Expression (old style)",
+ "title_field": "title",
+ "show_title_field_in_link": 1,
+ "search_fields": "title,description",
+ "track_changes": 1,
+ "description": "Business playbooks: company-specific instructions the AI loads when relevant.",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ]
+}

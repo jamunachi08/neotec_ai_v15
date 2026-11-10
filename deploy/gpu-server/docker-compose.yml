@@ -1,0 +1,83 @@
+# Neotec Coworker GPU server: open models behind TLS and an API key.
+#
+#   docker compose --profile ollama up -d     # simple, many models, good for pilots
+#   docker compose --profile vllm up -d       # production throughput, one model per server
+#
+# Only Caddy is published (ports 80/443). The model server is reachable inside this network only.
+
+services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+      API_KEY: ${API_KEY}
+      UPSTREAM: ${UPSTREAM:-ollama:11434}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  ollama:
+    profiles: ["ollama"]
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    environment:
+      OLLAMA_CONTEXT_LENGTH: ${OLLAMA_CONTEXT_LENGTH:-32768}
+      OLLAMA_KEEP_ALIVE: ${OLLAMA_KEEP_ALIVE:-30m}
+      OLLAMA_HOST: 0.0.0.0:11434
+    volumes:
+      - ollama_models:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  ollama-pull:
+    profiles: ["ollama"]
+    image: ollama/ollama:latest
+    depends_on: [ollama]
+    environment:
+      OLLAMA_HOST: ollama:11434
+      OLLAMA_MODELS_TO_PULL: ${OLLAMA_MODELS}
+    entrypoint: ["/bin/sh", "-c", "sleep 5; for m in $$OLLAMA_MODELS_TO_PULL; do echo pulling $$m; ollama pull $$m; done"]
+    restart: "no"
+
+  vllm:
+    profiles: ["vllm"]
+    image: vllm/vllm-openai:latest
+    restart: unless-stopped
+    ipc: host
+    environment:
+      HF_TOKEN: ${HF_TOKEN:-}
+    command:
+      - --model=${VLLM_MODEL}
+      - --served-model-name=${VLLM_SERVED_NAME}
+      - --api-key=${API_KEY}
+      - --enable-auto-tool-choice
+      - --tool-call-parser=${VLLM_TOOL_PARSER:-hermes}
+      - --max-model-len=${VLLM_MAX_MODEL_LEN:-32768}
+      - --gpu-memory-utilization=${VLLM_GPU_MEMORY_UTILIZATION:-0.90}
+      - --tensor-parallel-size=${VLLM_TENSOR_PARALLEL:-1}
+      - --port=8000
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+volumes:
+  caddy_data:
+  caddy_config:
+  ollama_models:
+  hf_cache:

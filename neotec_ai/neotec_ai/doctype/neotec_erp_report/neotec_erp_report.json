@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:report",
+ "creation": "2026-11-03 09:30:00.000000",
+ "description": "ERPNext reports the AI may run. Users can still only run reports they are allowed to open in Desk.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "report",
+  "enabled",
+  "column_break_1",
+  "module",
+  "report_type",
+  "section_meaning",
+  "purpose",
+  "sample_questions",
+  "default_filters",
+  "section_filters",
+  "filters_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "report",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Report",
+   "options": "Report",
+   "reqd": 1,
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "report.module",
+   "fieldname": "module",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Module",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "report.report_type",
+   "fieldname": "report_type",
+   "fieldtype": "Data",
+   "label": "Report Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_meaning",
+   "fieldtype": "Section Break",
+   "label": "For the AI"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "What This Report Answers",
+   "reqd": 1,
+   "description": "One or two lines in business terms, e.g. 'Who owes us money and how overdue it is, by customer, in ageing buckets'."
+  },
+  {
+   "fieldname": "sample_questions",
+   "fieldtype": "Small Text",
+   "label": "Sample Questions",
+   "description": "One per line."
+  },
+  {
+   "fieldname": "default_filters",
+   "fieldtype": "Code",
+   "label": "House Default Filters",
+   "options": "JSON",
+   "description": "Optional JSON of filter values to use when the user doesn't say, e.g. {\"periodicity\": \"Monthly\", \"cost_center\": [\"Main - AC\"]}."
+  },
+  {
+   "fieldname": "section_filters",
+   "fieldtype": "Section Break",
+   "label": "Detected Filters"
+  },
+  {
+   "fieldname": "filters_html",
+   "fieldtype": "HTML",
+   "label": "Filters"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-03 09:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec ERP Report",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "report",
+ "track_changes": 1
+}

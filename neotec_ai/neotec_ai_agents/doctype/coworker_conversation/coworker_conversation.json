@@ -1,0 +1,238 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "coworker",
+  "user",
+  "status",
+  "cb1",
+  "channel",
+  "context_doctype",
+  "context_name",
+  "routine",
+  "run",
+  "sb2",
+  "total_tokens",
+  "last_message_at",
+  "cb2",
+  "last_error",
+  "summary",
+  "summary_upto",
+  "sb_mode",
+  "permission_mode",
+  "parent_conversation",
+  "cb_mode",
+  "delegation_depth",
+  "allowed_tools",
+  "active_tools"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "coworker",
+   "fieldtype": "Link",
+   "label": "Coworker",
+   "options": "AI Coworker",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "reqd": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Idle\nRunning\nStopping\nWaiting Approval\nError",
+   "default": "Idle",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Select",
+   "label": "Channel",
+   "options": "Chat\nForm\nRoutine\nMCP\nDelegated\nBrief",
+   "default": "Chat"
+  },
+  {
+   "fieldname": "context_doctype",
+   "fieldtype": "Link",
+   "label": "Context DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "context_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Context Document",
+   "options": "context_doctype"
+  },
+  {
+   "fieldname": "routine",
+   "fieldtype": "Link",
+   "label": "Routine",
+   "options": "Coworker Routine"
+  },
+  {
+   "fieldname": "run",
+   "fieldtype": "Link",
+   "options": "Coworker Run",
+   "label": "Playbook run",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Usage"
+  },
+  {
+   "fieldname": "total_tokens",
+   "fieldtype": "Int",
+   "label": "Total Tokens",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_message_at",
+   "fieldtype": "Datetime",
+   "label": "Last Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_error",
+   "fieldtype": "Small Text",
+   "label": "Last Error",
+   "read_only": 1
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Long Text",
+   "label": "Earlier Conversation Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "summary_upto",
+   "fieldtype": "Int",
+   "label": "Summary Covers Up To Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_mode",
+   "fieldtype": "Section Break",
+   "label": "Mode",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "permission_mode",
+   "fieldtype": "Select",
+   "label": "Permission Mode",
+   "options": "Standard\nRead Only\nPlan First",
+   "default": "Standard"
+  },
+  {
+   "fieldname": "parent_conversation",
+   "fieldtype": "Link",
+   "label": "Delegated From",
+   "options": "Coworker Conversation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_mode",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delegation_depth",
+   "fieldtype": "Int",
+   "label": "Delegation Depth",
+   "read_only": 1
+  },
+  {
+   "fieldname": "allowed_tools",
+   "fieldtype": "Small Text",
+   "label": "Always Allowed in This Chat",
+   "read_only": 1
+  },
+  {
+   "fieldname": "active_tools",
+   "fieldtype": "Small Text",
+   "label": "Tools Loaded on Demand",
+   "read_only": 1,
+   "hidden": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Conversation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker User",
+   "read": 1,
+   "permlevel": 0,
+   "create": 1,
+   "write": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "if_owner": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "hash",
+ "naming_rule": "Random",
+ "title_field": "title",
+ "show_title_field_in_link": 0
+}

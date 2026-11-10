@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tool",
+  "mode",
+  "is_write",
+  "risk_level"
+ ],
+ "fields": [
+  {
+   "fieldname": "tool",
+   "fieldtype": "Link",
+   "label": "Tool",
+   "options": "Coworker Tool",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 4
+  },
+  {
+   "fieldname": "mode",
+   "fieldtype": "Select",
+   "label": "Mode",
+   "options": "Default\nAuto\nAsk\nOff",
+   "default": "Default",
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Default: reads run, changes ask first. Auto: runs whenever policy allows, even changes. Ask: always asks a person first. Off: not available."
+  },
+  {
+   "fieldname": "is_write",
+   "fieldtype": "Check",
+   "label": "Changes Data",
+   "fetch_from": "tool.is_write",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Data",
+   "label": "Risk",
+   "fetch_from": "tool.risk_level",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Tool Grant",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1,
+ "editable_grid": 1
+}

@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-03 09:50:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "user",
+  "instructions"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "User",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "instructions",
+   "fieldtype": "Long Text",
+   "label": "Instructions for the AI",
+   "description": "Context added to every chat in this project, e.g. 'Focus on the Riyadh branch; amounts in SAR thousands; compare against last year.'"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-03 09:50:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec AI Project",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash",
+ "title_field": "title",
+ "show_title_field_in_link": 1,
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "description": "Groups chats and gives them shared instructions."
+}

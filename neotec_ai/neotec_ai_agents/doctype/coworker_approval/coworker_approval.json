@@ -1,0 +1,226 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "summary",
+  "tool",
+  "cb1",
+  "coworker",
+  "requested_by",
+  "approver_role",
+  "expires_on",
+  "sb2",
+  "decided_by",
+  "decided_on",
+  "cb2",
+  "decision_comment",
+  "sb3",
+  "arguments",
+  "result_preview",
+  "conversation",
+  "message",
+  "action_log",
+  "rule",
+  "remember"
+ ],
+ "fields": [
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nApproved\nRejected\nExpired\nExecuted\nFailed",
+   "default": "Pending",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Small Text",
+   "label": "Requested Action",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "tool",
+   "fieldtype": "Data",
+   "label": "Tool",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "coworker",
+   "fieldtype": "Link",
+   "label": "Coworker",
+   "options": "AI Coworker",
+   "read_only": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Requested By",
+   "options": "User",
+   "read_only": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "approver_role",
+   "fieldtype": "Link",
+   "label": "Approver Role",
+   "options": "Role",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expires_on",
+   "fieldtype": "Datetime",
+   "label": "Expires On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Decision"
+  },
+  {
+   "fieldname": "decided_by",
+   "fieldtype": "Link",
+   "label": "Decided By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "decided_on",
+   "fieldtype": "Datetime",
+   "label": "Decided On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "decision_comment",
+   "fieldtype": "Small Text",
+   "label": "Comment"
+  },
+  {
+   "fieldname": "sb3",
+   "fieldtype": "Section Break",
+   "label": "Detail"
+  },
+  {
+   "fieldname": "arguments",
+   "fieldtype": "Code",
+   "label": "Arguments",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "result_preview",
+   "fieldtype": "Long Text",
+   "label": "Result",
+   "read_only": 1
+  },
+  {
+   "fieldname": "conversation",
+   "fieldtype": "Link",
+   "label": "Conversation",
+   "options": "Coworker Conversation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Link",
+   "label": "Message",
+   "options": "Coworker Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "action_log",
+   "fieldtype": "Link",
+   "label": "Action Log",
+   "options": "Coworker Action Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rule",
+   "fieldtype": "Link",
+   "label": "Policy Rule",
+   "options": "Coworker Policy Rule",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remember",
+   "fieldtype": "Check",
+   "label": "Always Allow in That Chat",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Approval",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "create": 0,
+   "write": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "create": 0,
+   "write": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Coworker Approver",
+   "read": 1,
+   "permlevel": 0,
+   "create": 0,
+   "write": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Coworker User",
+   "read": 1,
+   "permlevel": 0,
+   "create": 0,
+   "write": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "if_owner": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "in_create": 1,
+ "autoname": "format:CAP-{#####}",
+ "naming_rule": "Expression",
+ "title_field": "summary",
+ "show_title_field_in_link": 0
+}

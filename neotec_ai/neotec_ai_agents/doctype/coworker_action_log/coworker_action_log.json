@@ -1,0 +1,188 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tool",
+  "status",
+  "decision",
+  "is_write",
+  "cb1",
+  "coworker",
+  "user",
+  "initiator",
+  "provider",
+  "cb2",
+  "conversation",
+  "approval",
+  "rule",
+  "duration_ms",
+  "sb2",
+  "reason",
+  "arguments",
+  "result_preview",
+  "error"
+ ],
+ "fields": [
+  {
+   "fieldname": "tool",
+   "fieldtype": "Data",
+   "label": "Tool",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Executing\nSucceeded\nFailed\nRefused\nPending Approval\nRejected\nExpired",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "decision",
+   "fieldtype": "Select",
+   "label": "Decision",
+   "options": "Allowed\nRefused\nApproval Required",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_write",
+   "fieldtype": "Check",
+   "label": "Changes Data"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "coworker",
+   "fieldtype": "Link",
+   "label": "Coworker",
+   "options": "AI Coworker",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "On behalf of",
+   "options": "User",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "initiator",
+   "fieldtype": "Select",
+   "label": "Started by",
+   "options": "Chat\nForm\nRoutine\nMCP\nApproval",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "label": "Provider",
+   "options": "Coworker Provider"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "conversation",
+   "fieldtype": "Link",
+   "label": "Conversation",
+   "options": "Coworker Conversation"
+  },
+  {
+   "fieldname": "approval",
+   "fieldtype": "Link",
+   "label": "Approval",
+   "options": "Coworker Approval"
+  },
+  {
+   "fieldname": "rule",
+   "fieldtype": "Link",
+   "label": "Policy Rule",
+   "options": "Coworker Policy Rule"
+  },
+  {
+   "fieldname": "duration_ms",
+   "fieldtype": "Int",
+   "label": "Duration (ms)"
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Detail"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "arguments",
+   "fieldtype": "Code",
+   "label": "Arguments (masked)",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "result_preview",
+   "fieldtype": "Long Text",
+   "label": "Result (masked, truncated)"
+  },
+  {
+   "fieldname": "error",
+   "fieldtype": "Small Text",
+   "label": "Error"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Action Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "create": 0,
+   "write": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "create": 0,
+   "write": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Coworker User",
+   "read": 1,
+   "permlevel": 0,
+   "create": 0,
+   "write": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "if_owner": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "in_create": 1,
+ "autoname": "hash",
+ "naming_rule": "Random"
+}

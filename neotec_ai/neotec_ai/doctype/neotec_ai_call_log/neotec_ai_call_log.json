@@ -1,0 +1,191 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-10 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "app",
+  "feature",
+  "status",
+  "route",
+  "cb1",
+  "provider",
+  "model",
+  "user",
+  "fell_back",
+  "masked",
+  "sb2",
+  "tokens_in",
+  "tokens_out",
+  "cb2",
+  "latency_ms",
+  "saved_chars",
+  "sb3",
+  "reference_doctype",
+  "reference_name",
+  "cb3",
+  "attempts",
+  "error"
+ ],
+ "fields": [
+  {
+   "fieldname": "app",
+   "fieldtype": "Data",
+   "label": "App",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "feature",
+   "fieldtype": "Data",
+   "label": "Feature",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Success\nFailed\nBlocked",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route",
+   "options": "Neotec AI Route"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "label": "Provider",
+   "options": "Coworker Provider",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "fell_back",
+   "fieldtype": "Check",
+   "label": "Fell Back"
+  },
+  {
+   "fieldname": "masked",
+   "fieldtype": "Check",
+   "label": "Personal Data Masked"
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Usage"
+  },
+  {
+   "fieldname": "tokens_in",
+   "fieldtype": "Int",
+   "label": "Tokens In"
+  },
+  {
+   "fieldname": "tokens_out",
+   "fieldtype": "Int",
+   "label": "Tokens Out"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "latency_ms",
+   "fieldtype": "Int",
+   "label": "Latency (ms)"
+  },
+  {
+   "fieldname": "saved_chars",
+   "fieldtype": "Int",
+   "label": "Characters Saved by Compression"
+  },
+  {
+   "fieldname": "sb3",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Name",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attempts",
+   "fieldtype": "Small Text",
+   "label": "Attempts"
+  },
+  {
+   "fieldname": "error",
+   "fieldtype": "Small Text",
+   "label": "Error"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec AI Call Log",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "autoname": "hash",
+ "in_create": 1,
+ "track_seen": 0
+}

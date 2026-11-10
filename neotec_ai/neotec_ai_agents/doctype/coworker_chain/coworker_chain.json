@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-01 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "chain_name",
+  "enabled",
+  "cb1",
+  "on_error",
+  "is_standard",
+  "sb1",
+  "description",
+  "steps",
+  "sb2",
+  "channels"
+ ],
+ "fields": [
+  {
+   "fieldname": "chain_name",
+   "fieldtype": "Data",
+   "label": "Chain",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "on_error",
+   "fieldtype": "Select",
+   "label": "When a step fails",
+   "options": "Stop\nContinue",
+   "default": "Stop"
+  },
+  {
+   "fieldname": "is_standard",
+   "fieldtype": "Check",
+   "label": "Standard",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "steps",
+   "fieldtype": "Table",
+   "label": "Steps",
+   "options": "Coworker Chain Step",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Delivery"
+  },
+  {
+   "fieldname": "channels",
+   "fieldtype": "Table",
+   "label": "Deliver to",
+   "options": "Coworker Run Channel",
+   "description": "Used when the chain is started by hand. A routine's own delivery settings win."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Chain",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "Coworker User",
+   "read": 1,
+   "permlevel": 0,
+   "report": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:chain_name",
+ "naming_rule": "By fieldname",
+ "title_field": "chain_name",
+ "show_title_field_in_link": 0
+}

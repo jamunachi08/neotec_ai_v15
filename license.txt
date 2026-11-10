@@ -1,0 +1,5 @@
+Copyright (c) 2026 Neotec Integrated Solutions. All rights reserved.
+
+This software is proprietary. Use is permitted only under a written licence agreement with
+Neotec Integrated Solutions. Copying, redistribution, sublicensing or resale without that
+agreement is prohibited.

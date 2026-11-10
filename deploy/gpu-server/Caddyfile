@@ -1,0 +1,20 @@
+# TLS for {$DOMAIN} and an API-key check in front of the model server.
+# Ollama has no authentication of its own, so it must never be exposed without this.
+# "route" keeps the order below exactly as written.
+{$DOMAIN} {
+	encode gzip
+	route {
+		@unauthorised not header Authorization "Bearer {$API_KEY}"
+		respond @unauthorised "Unauthorised" 401
+
+		# Model listing and chat completions only; no model management from the internet.
+		@allowed path /v1/* /api/tags
+		reverse_proxy @allowed {$UPSTREAM} {
+			transport http {
+				read_timeout 600s
+			}
+		}
+
+		respond 404
+	}
+}

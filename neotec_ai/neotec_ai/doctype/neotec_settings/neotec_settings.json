@@ -1,0 +1,381 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-02 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_general",
+  "enable_ai",
+  "provider",
+  "model",
+  "column_break_gen",
+  "support_email",
+  "assistant_name",
+  "section_credentials",
+  "api_endpoint",
+  "api_key",
+  "column_break_cred",
+  "max_tokens",
+  "temperature",
+  "request_timeout",
+  "section_data",
+  "enable_db_queries",
+  "enable_doc_context",
+  "enable_erp_reports",
+  "erp_report_access",
+  "enable_approvals",
+  "column_break_data",
+  "max_records_fetch",
+  "max_query_rounds",
+  "max_context_chars",
+  "max_report_rows",
+  "catalog_mode",
+  "section_business",
+  "business_context",
+  "section_governance",
+  "rate_limit_per_hour",
+  "column_break_gov",
+  "log_retention_days",
+  "log_query_results",
+  "allow_external_recipients",
+  "extra_sensitive_fields",
+  "conversation_retention_days",
+  "section_platform",
+  "platform_enabled",
+  "ai_provider",
+  "compression_mode",
+  "column_break_platform",
+  "compression_trigger_chars",
+  "call_log_retention_days",
+  "section_writing",
+  "enable_writing",
+  "writing_all_doctypes",
+  "column_break_writing",
+  "writing_doctypes"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_general",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_ai",
+   "fieldtype": "Check",
+   "label": "Enable Neotec AI"
+  },
+  {
+   "default": "Google Gemini",
+   "fieldname": "provider",
+   "fieldtype": "Select",
+   "label": "LLM Provider",
+   "options": "Google Gemini\nAnthropic Claude\nOpenAI\nOpenAI-Compatible / Ollama",
+   "reqd": 1,
+   "description": "Legacy direct connection. Version 4 moves this into a Coworker Provider on upgrade."
+  },
+  {
+   "default": "gemini-flash-latest",
+   "description": "Legacy direct connection. Version 4 moves this into a Coworker Provider on upgrade.",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gen",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "support@neotec.ai",
+   "fieldname": "support_email",
+   "fieldtype": "Data",
+   "label": "Support Email",
+   "options": "Email"
+  },
+  {
+   "default": "Neotec AI",
+   "fieldname": "assistant_name",
+   "fieldtype": "Data",
+   "label": "Assistant Display Name"
+  },
+  {
+   "fieldname": "section_credentials",
+   "fieldtype": "Section Break",
+   "label": "Direct Connection (used only when no Assistant Provider, route or Coworker Provider exists)",
+   "collapsible": 1
+  },
+  {
+   "description": "Optional base URL. Leave blank for the provider default. Examples: https://api.openai.com/v1, http://localhost:11434/v1 (Ollama), https://generativelanguage.googleapis.com/v1beta, https://api.anthropic.com/v1",
+   "fieldname": "api_endpoint",
+   "fieldtype": "Data",
+   "label": "API Base URL"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key",
+   "length": 512
+  },
+  {
+   "fieldname": "column_break_cred",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2048",
+   "fieldname": "max_tokens",
+   "fieldtype": "Int",
+   "label": "Max Response Tokens"
+  },
+  {
+   "default": "0.2",
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Temperature"
+  },
+  {
+   "default": "60",
+   "fieldname": "request_timeout",
+   "fieldtype": "Int",
+   "label": "Request Timeout (seconds)"
+  },
+  {
+   "fieldname": "section_data",
+   "fieldtype": "Section Break",
+   "label": "Business Data Access"
+  },
+  {
+   "default": "1",
+   "description": "Let the AI query the DocTypes registered in Neotec Data Source. Every query runs as the current user, with their permissions.",
+   "fieldname": "enable_db_queries",
+   "fieldtype": "Check",
+   "label": "Allow Database Questions"
+  },
+  {
+   "default": "1",
+   "description": "Send the readable fields of the document currently open on screen.",
+   "fieldname": "enable_doc_context",
+   "fieldtype": "Check",
+   "label": "Use Open Document as Context"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_erp_reports",
+   "fieldtype": "Check",
+   "label": "Allow ERPNext Reports",
+   "description": "Let the AI run standard and custom ERPNext reports (P&L, Balance Sheet, Accounts Receivable...). Each user can only run reports they can open in Desk."
+  },
+  {
+   "default": "Listed Reports Only",
+   "depends_on": "enable_erp_reports",
+   "fieldname": "erp_report_access",
+   "fieldtype": "Select",
+   "label": "Which Reports",
+   "options": "Listed Reports Only\nAny Report the User Can Run",
+   "description": "Listed: only reports enabled in Neotec ERP Report. Any: every Script/Query report the user may open."
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_approvals",
+   "fieldtype": "Check",
+   "label": "Answer 'What Needs My Approval'",
+   "description": "Read the user's open workflow approvals and show a 'needs you' prompt in the chat."
+  },
+  {
+   "fieldname": "column_break_data",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "50",
+   "fieldname": "max_records_fetch",
+   "fieldtype": "Int",
+   "label": "Max Rows per Query"
+  },
+  {
+   "default": "6",
+   "description": "Each lookup (data query, ERPNext report, field details, playbook, approvals) is one step. 1-10.",
+   "fieldname": "max_query_rounds",
+   "fieldtype": "Int",
+   "label": "Max AI Steps per Question"
+  },
+  {
+   "default": "20000",
+   "description": "Upper limit on characters of data sent to the model per round.",
+   "fieldname": "max_context_chars",
+   "fieldtype": "Int",
+   "label": "Max Data Characters"
+  },
+  {
+   "default": "500",
+   "description": "Rows shown/exported in AI reports (max 5000).",
+   "fieldname": "max_report_rows",
+   "fieldtype": "Int",
+   "label": "Max Rows per Report"
+  },
+  {
+   "default": "Auto",
+   "fieldname": "catalog_mode",
+   "fieldtype": "Select",
+   "label": "Data Dictionary in Prompt",
+   "options": "Auto\nFull\nIndex Only",
+   "description": "Auto: send full field details only for the data sources most relevant to the question, plus a one-line index of the rest; the AI asks for more when needed. Saves tokens on large dictionaries."
+  },
+  {
+   "fieldname": "section_business",
+   "fieldtype": "Section Break",
+   "label": "Business Context"
+  },
+  {
+   "description": "Plain-language facts the AI should know: what the company does, fiscal year, base currency, internal terms and abbreviations, how KPIs are defined.",
+   "fieldname": "business_context",
+   "fieldtype": "Long Text",
+   "label": "Business Context & Glossary"
+  },
+  {
+   "fieldname": "section_governance",
+   "fieldtype": "Section Break",
+   "label": "Governance"
+  },
+  {
+   "default": "60",
+   "description": "Per user. 0 = unlimited.",
+   "fieldname": "rate_limit_per_hour",
+   "fieldtype": "Int",
+   "label": "Requests per Hour"
+  },
+  {
+   "fieldname": "column_break_gov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "90",
+   "description": "0 = keep forever.",
+   "fieldname": "log_retention_days",
+   "fieldtype": "Int",
+   "label": "Keep Logs for (days)"
+  },
+  {
+   "default": "0",
+   "description": "Off: logs record which queries ran, not the rows returned.",
+   "fieldname": "log_query_results",
+   "fieldtype": "Check",
+   "label": "Store Query Results in Logs"
+  },
+  {
+   "default": "0",
+   "description": "Off: scheduled reports can only be e-mailed to enabled users of this system.",
+   "fieldname": "allow_external_recipients",
+   "fieldtype": "Check",
+   "label": "Allow External E-mail Recipients"
+  },
+  {
+   "fieldname": "extra_sensitive_fields",
+   "fieldtype": "Small Text",
+   "label": "Extra Sensitive Fields",
+   "description": "Field names the AI must never see, comma or line separated (e.g. salary_bank, custom_tax_id or 'Employee.cell_number'). Passwords, keys, tokens and bank/card numbers are always blocked."
+  },
+  {
+   "default": "180",
+   "fieldname": "conversation_retention_days",
+   "fieldtype": "Int",
+   "label": "Keep Chat History for (days)",
+   "description": "0 = keep forever."
+  },
+  {
+   "fieldname": "section_platform",
+   "fieldtype": "Section Break",
+   "label": "AI Platform"
+  },
+  {
+   "fieldname": "platform_enabled",
+   "fieldtype": "Check",
+   "label": "Shared AI Gateway Enabled",
+   "default": "1",
+   "description": "Assistant, BI, coworkers and connected apps send model calls through one gateway with routes, fallback, quotas, residency and a usage ledger."
+  },
+  {
+   "fieldname": "ai_provider",
+   "fieldtype": "Link",
+   "label": "Assistant Provider",
+   "options": "Coworker Provider",
+   "description": "Provider for the Alt+K assistant and the BI builder. Leave empty to use the Assistant route or the default chain."
+  },
+  {
+   "fieldname": "compression_mode",
+   "fieldtype": "Select",
+   "label": "Prompt Compression",
+   "options": "Off\nLossless\nStandard",
+   "default": "Lossless"
+  },
+  {
+   "fieldname": "column_break_platform",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "compression_trigger_chars",
+   "fieldtype": "Int",
+   "label": "Compress Requests Longer Than (characters)",
+   "default": "24000"
+  },
+  {
+   "fieldname": "call_log_retention_days",
+   "fieldtype": "Int",
+   "label": "Keep Call Log (days)",
+   "default": "90"
+  },
+  {
+   "fieldname": "section_writing",
+   "fieldtype": "Section Break",
+   "label": "Writing Assistant"
+  },
+  {
+   "fieldname": "enable_writing",
+   "fieldtype": "Check",
+   "label": "AI Writing Help on Text Fields",
+   "default": "0",
+   "description": "Adds a ✦ button to long text fields: spell check (Arabic and English), translate, improve, formal, shorter."
+  },
+  {
+   "fieldname": "writing_all_doctypes",
+   "fieldtype": "Check",
+   "label": "On Every Document Type",
+   "default": "0",
+   "depends_on": "enable_writing"
+  },
+  {
+   "fieldname": "column_break_writing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "writing_doctypes",
+   "fieldtype": "Table MultiSelect",
+   "label": "Document Types",
+   "options": "Neotec AI Writing DocType",
+   "depends_on": "eval:doc.enable_writing && !doc.writing_all_doctypes"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

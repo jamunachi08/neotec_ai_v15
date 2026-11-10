@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-28 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "knowledge",
+  "coworker",
+  "seq",
+  "content",
+  "search_text"
+ ],
+ "fields": [
+  {
+   "fieldname": "knowledge",
+   "fieldtype": "Link",
+   "label": "Knowledge",
+   "options": "Coworker Knowledge",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "coworker",
+   "fieldtype": "Link",
+   "label": "Coworker",
+   "options": "AI Coworker"
+  },
+  {
+   "fieldname": "seq",
+   "fieldtype": "Int",
+   "label": "Passage #",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Long Text",
+   "label": "Content"
+  },
+  {
+   "fieldname": "search_text",
+   "fieldtype": "Long Text",
+   "label": "Normalised Text",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Knowledge Chunk",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "create": 0,
+   "write": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "create": 0,
+   "write": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "in_create": 1,
+ "autoname": "hash",
+ "naming_rule": "Random"
+}

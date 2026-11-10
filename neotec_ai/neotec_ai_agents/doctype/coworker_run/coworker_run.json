@@ -1,0 +1,330 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-01 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "playbook",
+  "parameter",
+  "status",
+  "severity",
+  "cb1",
+  "source",
+  "run_as",
+  "dry_run",
+  "budget_exceeded",
+  "cb2",
+  "routine",
+  "trigger",
+  "chain",
+  "chain_root",
+  "chain_step",
+  "chain_parameter",
+  "sb_ref",
+  "reference_doctype",
+  "cb3",
+  "reference_name",
+  "sb_out",
+  "output",
+  "error",
+  "sb_metrics",
+  "started_on",
+  "ended_on",
+  "duration_s",
+  "cb4",
+  "provider",
+  "tokens_in",
+  "tokens_out",
+  "cost",
+  "cb5",
+  "tool_calls",
+  "refused_calls",
+  "conversation",
+  "sb_q",
+  "delivered",
+  "delivery_note",
+  "cb6",
+  "score",
+  "score_note"
+ ],
+ "fields": [
+  {
+   "fieldname": "playbook",
+   "fieldtype": "Link",
+   "label": "Playbook",
+   "options": "Coworker Playbook",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "parameter",
+   "fieldtype": "Small Text",
+   "label": "Parameter"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Queued\nRunning\nSucceeded\nNothing to Report\nWaiting Approval\nFailed\nBudget Exceeded\nCancelled",
+   "default": "Queued",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "\ninfo\nsuccess\nwarn\ncritical",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Started by",
+   "options": "Manual\nRoutine\nTrigger\nChain\nMCP",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "run_as",
+   "fieldtype": "Link",
+   "label": "Run as",
+   "options": "User",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "dry_run",
+   "fieldtype": "Check",
+   "label": "Dry run"
+  },
+  {
+   "fieldname": "budget_exceeded",
+   "fieldtype": "Check",
+   "label": "Budget exceeded",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "routine",
+   "fieldtype": "Link",
+   "label": "Routine",
+   "options": "Coworker Routine"
+  },
+  {
+   "fieldname": "trigger",
+   "fieldtype": "Link",
+   "label": "Trigger",
+   "options": "Coworker Trigger"
+  },
+  {
+   "fieldname": "chain",
+   "fieldtype": "Link",
+   "label": "Chain",
+   "options": "Coworker Chain",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "chain_root",
+   "fieldtype": "Data",
+   "label": "Chain run",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chain_step",
+   "fieldtype": "Int",
+   "label": "Chain step",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chain_parameter",
+   "fieldtype": "Small Text",
+   "label": "Chain parameter",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_ref",
+   "fieldtype": "Section Break",
+   "label": "Started from",
+   "collapsible": 1,
+   "depends_on": "eval:doc.reference_doctype"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Document type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Document",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "sb_out",
+   "fieldtype": "Section Break",
+   "label": "Result"
+  },
+  {
+   "fieldname": "output",
+   "fieldtype": "Long Text",
+   "label": "Output"
+  },
+  {
+   "fieldname": "error",
+   "fieldtype": "Small Text",
+   "label": "Error"
+  },
+  {
+   "fieldname": "sb_metrics",
+   "fieldtype": "Section Break",
+   "label": "Metrics",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "started_on",
+   "fieldtype": "Datetime",
+   "label": "Started"
+  },
+  {
+   "fieldname": "ended_on",
+   "fieldtype": "Datetime",
+   "label": "Ended"
+  },
+  {
+   "fieldname": "duration_s",
+   "fieldtype": "Float",
+   "label": "Duration (s)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "label": "AI provider",
+   "options": "Coworker Provider"
+  },
+  {
+   "fieldname": "tokens_in",
+   "fieldtype": "Int",
+   "label": "Tokens in"
+  },
+  {
+   "fieldname": "tokens_out",
+   "fieldtype": "Int",
+   "label": "Tokens out"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Float",
+   "label": "Estimated cost (USD)",
+   "precision": "4"
+  },
+  {
+   "fieldname": "cb5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tool_calls",
+   "fieldtype": "Int",
+   "label": "Tool calls"
+  },
+  {
+   "fieldname": "refused_calls",
+   "fieldtype": "Int",
+   "label": "Refused calls"
+  },
+  {
+   "fieldname": "conversation",
+   "fieldtype": "Link",
+   "label": "Conversation",
+   "options": "Coworker Conversation"
+  },
+  {
+   "fieldname": "sb_q",
+   "fieldtype": "Section Break",
+   "label": "Delivery and quality",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "delivered",
+   "fieldtype": "Check",
+   "label": "Delivered"
+  },
+  {
+   "fieldname": "delivery_note",
+   "fieldtype": "Small Text",
+   "label": "Delivery note"
+  },
+  {
+   "fieldname": "cb6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Int",
+   "label": "Quality score (1-5)"
+  },
+  {
+   "fieldname": "score_note",
+   "fieldtype": "Small Text",
+   "label": "Score note"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-10 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI Agents",
+ "name": "Coworker Run",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "permlevel": 0,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "Coworker Admin",
+   "read": 1,
+   "permlevel": 0,
+   "delete": 1,
+   "export": 1,
+   "report": 1,
+   "print": 1
+  },
+  {
+   "role": "Coworker User",
+   "read": 1,
+   "permlevel": 0,
+   "report": 1,
+   "if_owner": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "autoname": "format:CWR-{YYYY}-{#####}",
+ "naming_rule": "Expression",
+ "title_field": "playbook",
+ "show_title_field_in_link": 0
+}

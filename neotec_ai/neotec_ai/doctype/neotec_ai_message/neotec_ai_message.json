@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-03 09:50:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "conversation",
+  "role",
+  "seq",
+  "column_break_1",
+  "context_doctype",
+  "context_name",
+  "tokens",
+  "section_content",
+  "display",
+  "content",
+  "reports",
+  "meta"
+ ],
+ "fields": [
+  {
+   "fieldname": "conversation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Conversation",
+   "options": "Neotec AI Conversation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Role",
+   "options": "user\nassistant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "seq",
+   "fieldtype": "Int",
+   "label": "Sequence"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "context_doctype",
+   "fieldtype": "Link",
+   "label": "Context DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "context_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Context Document",
+   "options": "context_doctype"
+  },
+  {
+   "fieldname": "tokens",
+   "fieldtype": "Int",
+   "label": "Tokens"
+  },
+  {
+   "fieldname": "section_content",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "display",
+   "fieldtype": "Long Text",
+   "label": "Shown to User"
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Long Text",
+   "label": "Sent to AI",
+   "description": "Includes report definitions so follow-up questions can refer to them."
+  },
+  {
+   "fieldname": "reports",
+   "fieldtype": "Code",
+   "label": "Report Definitions",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "meta",
+   "fieldtype": "Small Text",
+   "label": "Details"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-03 09:50:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec AI",
+ "name": "Neotec AI Message",
+ "owner": "Administrator",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash",
+ "permissions": [
+  {
+   "delete": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  }
+ ],
+ "in_create": 1,
+ "description": "A message in a saved Neotec AI chat."
+}

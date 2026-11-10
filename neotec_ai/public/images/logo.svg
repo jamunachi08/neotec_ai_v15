@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Neotec AI">
+  <rect width="64" height="64" rx="14" fill="#0F6E66"/>
+  <path d="M18 44V20h6l16 15V20h6v24h-6L24 29v15z" fill="#fff"/>
+  <circle cx="49" cy="15" r="5" fill="#E9C46A"/>
+</svg>
